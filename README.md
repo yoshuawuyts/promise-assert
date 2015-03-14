@@ -5,6 +5,8 @@
 [![Downloads][downloads-image]][downloads-url]
 [![js-standard-style][standard-image]][standard-url]
 
+Inline `Promise` assertion library. 
+
 ## Installation
 ```bash
 $ npm install promise-assert
@@ -12,7 +14,29 @@ $ npm install promise-assert
 
 ## Usage
 ```js
+const pa = require('promise-assert')
 
+Promise.resolve(1337)
+  .then(pa.equal(1337))
+  // => ok
+```
+
+## API
+##### pa()
+```js
+Promise.resolve(false)
+  .then(pa())
+  // => AssertionError
+```
+
+##### pa.ok()
+`pa.ok()` == `pa()`
+
+##### pa.equal()
+```js
+Promise.resolve('hello')
+  .then(pa.equal('hello'))
+  // => ok
 ```
 
 ## License
