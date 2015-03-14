@@ -1,6 +1,6 @@
 {
   "name": "promise-assert",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Inline promise assertion library",
   "main": "index.js",
   "scripts": {
