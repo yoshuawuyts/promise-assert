@@ -14,7 +14,7 @@ function ok (msg) {
   // @return {Promise}
   return function (val) {
     if (val) return Promise.resolve()
-    var err = new AssertionError()
+    var err = new AssertionError(msg)
     err.message = msg
     return Promise.reject(err)
   }
@@ -29,7 +29,7 @@ ok.equal = function equal (orig, msg) {
   // @return {Promise}
   return function (val) {
     if (orig == val) return Promise.resolve()
-    var err = new AssertionError()
+    var err = new AssertionError(msg)
     err.message = msg
     return Promise.reject(err)
   }
