@@ -1,5 +1,5 @@
 /*eslint eqeqeq:0*/
-require('es6-promise').polyfill()
+const ES6Promise = require('es6-promise').Promise
 const assert = require('assert')
 const AssertionError = assert.AssertionError
 
@@ -13,10 +13,10 @@ function ok (msg) {
   // @param {Any} val
   // @return {Promise}
   return function (val) {
-    if (val) return Promise.resolve()
+    if (val) return ES6Promise.resolve()
     var err = new AssertionError(msg)
     err.message = msg
-    return Promise.reject(err)
+    return ES6Promise.reject(err)
   }
 }
 
@@ -28,9 +28,9 @@ ok.equal = function equal (orig, msg) {
   // @param {Any} val
   // @return {Promise}
   return function (val) {
-    if (orig == val) return Promise.resolve()
+    if (orig == val) return ES6Promise.resolve()
     var err = new AssertionError(msg)
     err.message = msg
-    return Promise.reject(err)
+    return ES6Promise.reject(err)
   }
 }
