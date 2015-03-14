@@ -13,7 +13,7 @@ function ok (msg) {
   // @param {Any} val
   // @return {Promise}
   return function (val) {
-    if (val) return ES6Promise.resolve()
+    if (val) return ES6Promise.resolve(val)
     var err = new AssertionError(msg)
     err.message = msg
     return ES6Promise.reject(err)
@@ -28,7 +28,7 @@ ok.equal = function equal (orig, msg) {
   // @param {Any} val
   // @return {Promise}
   return function (val) {
-    if (orig == val) return ES6Promise.resolve()
+    if (orig == val) return ES6Promise.resolve(val)
     var err = new AssertionError(msg)
     err.message = msg
     return ES6Promise.reject(err)
